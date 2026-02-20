@@ -10,6 +10,14 @@ func main() {
 
 	counts := make(map[string]int)
 	input := bufio.NewScanner(os.Stdin)
+	file, _ := os.Open("file1.txt")
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		line := scanner.Text()
+		fmt.Println(line)
+
+	}
+
 	i := 5
 	for i > 0 {
 		input.Scan()
@@ -23,4 +31,5 @@ func main() {
 			fmt.Printf("key value pair: %d and %v\n", n, line)
 		}
 	}
+
 }
