@@ -1,17 +1,18 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 )
 
 func main() {
-	f, _ := os.Open("bytes/cute-cat.webp")
-	cat := bufio.NewReader(f)
 
-	r, n, _ := cat.ReadRune()
+	cute_cat, err := os.ReadFile("cute-cat.webp")
 
-	fmt.Printf("rune:%v\nbytes:%d", r, n)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("this cute do is just %d bytes\n", len(cute_cat))
 
 }
